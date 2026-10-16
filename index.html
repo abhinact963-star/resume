@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abhinav Tumati – Resume</title>
+<style>
+  :root {
+    --bg: #f3f5f8;
+    --paper: #ffffff;
+    --ink: #18202b;
+    --body: #333d4a;
+    --muted: #6a7482;
+    --accent: #1f4e8c;
+    --accent-soft: #edf2fa;
+    --line: #e3e8ef;
+    --good: #1d6b4f;
+    --good-soft: #edf7f2;
+    --chip: #f2f4f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1319; --paper: #161c24; --ink: #edf1f6; --body: #c9d1db; --muted: #8f9aa8;
+      --accent: #84b3ee; --accent-soft: #1d2836; --line: #26303c;
+      --good: #7fd1ad; --good-soft: #17281f; --chip: #1f2731;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--body);
+    font: 15px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding: 36px 16px 56px;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 48px 56px;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 8px 24px rgba(16, 24, 40, .05);
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  b, strong { color: var(--ink); }
+
+  /* Header */
+  header { padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  h1 { margin: 0; font-size: 32px; line-height: 1.15; letter-spacing: -.2px; color: var(--ink); font-weight: 700; }
+  .role { margin: 6px 0 0; color: var(--accent); font-weight: 600; font-size: 15.5px; }
+  .contact { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 14px; color: var(--muted); }
+  .contact li { display: flex; align-items: center; gap: 7px; }
+  .contact svg { width: 14px; height: 14px; flex: none; stroke: var(--muted); }
+  .print-btn {
+    flex: none; border: 1px solid var(--line); background: var(--paper); color: var(--ink);
+    border-radius: 8px; padding: 8px 14px; font: inherit; font-size: 13.5px; cursor: pointer;
+  }
+  .print-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Sections */
+  section { margin-top: 30px; }
+  h2 {
+    margin: 0 0 14px; font-size: 12px; letter-spacing: 1.8px; text-transform: uppercase;
+    color: var(--accent); font-weight: 700;
+  }
+  p { margin: 0; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: 200px 1fr; gap: 10px 22px; margin: 0; }
+  .skills dt { font-weight: 600; color: var(--ink); font-size: 14px; }
+  .skills dd { margin: 0; font-size: 14px; color: var(--body); }
+
+  /* Company */
+  .company { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .company h3 { margin: 0; font-size: 18px; color: var(--ink); }
+  .roles { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 2px; }
+  .roles li { display: flex; justify-content: space-between; gap: 12px; font-size: 14.5px; }
+  .roles li span:first-child { color: var(--ink); font-weight: 500; }
+  .dates { color: var(--muted); font-size: 13.5px; white-space: nowrap; }
+
+  /* Projects */
+  .project { padding: 22px 0; border-top: 1px solid var(--line); }
+  .projects { margin-top: 18px; }
+  .projects .project:last-child { padding-bottom: 0; }
+  .p-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .p-head h4 { margin: 0; font-size: 16px; color: var(--ink); }
+  .p-role { margin-top: 2px; color: var(--muted); font-size: 14px; }
+  .badge {
+    display: inline-block; margin-left: 8px; padding: 1px 9px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent); font-size: 11.5px; font-weight: 600; vertical-align: 2px;
+  }
+  .challenge { margin-top: 12px; font-size: 14.5px; }
+  .challenge b { font-weight: 600; }
+  .built { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 6px; font-size: 14.5px; }
+  .built li::marker { color: var(--accent); }
+  .result {
+    margin-top: 12px; padding: 9px 12px; border-radius: 8px;
+    background: var(--good-soft); font-size: 14.5px; display: flex; gap: 9px; align-items: flex-start;
+  }
+  .result svg { width: 16px; height: 16px; flex: none; margin-top: 3px; stroke: var(--good); }
+  .result.target { background: var(--accent-soft); }
+  .result.target svg { stroke: var(--accent); }
+  .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .stack span { background: var(--chip); color: var(--muted); border-radius: 6px; padding: 2px 9px; font-size: 12.5px; }
+
+  .compact { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 8px; font-size: 14.5px; }
+  .compact .when { color: var(--muted); font-size: 13px; font-style: italic; white-space: nowrap; }
+
+  .edu { display: flex; justify-content: space-between; gap: 12px; }
+  .edu .sub { display: block; color: var(--muted); font-size: 14px; }
+
+  @media (max-width: 640px) {
+    body { padding: 16px; }
+    .page { padding: 28px 20px; border-radius: 12px; }
+    .top { flex-direction: column; }
+    .skills { grid-template-columns: 1fr; gap: 2px; }
+    .skills dd { margin-bottom: 10px; }
+    .p-head, .company, .roles li, .edu { flex-direction: column; gap: 0; }
+  }
+
+  @media print {
+    @page { size: A4; margin: 0; }
+    :root { --ink: #18202b; --body: #2f3946; --muted: #5d6775; --accent: #1f4e8c; --accent-soft: #edf2fa; --line: #dfe4eb; --good: #1d6b4f; --good-soft: #edf7f2; --chip: #f2f4f7; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: #fff; padding: 0; font-size: 8.6pt; line-height: 1.3; }
+    .page { border: 0; box-shadow: none; padding: 10mm 12mm; max-width: none; border-radius: 0; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+    .print-btn { display: none; }
+    header { padding-bottom: 8px; }
+    h1 { font-size: 19pt; }
+    .role { font-size: 10pt; margin-top: 2px; }
+    .contact { margin-top: 5px; font-size: 8.5pt; gap: 2px 16px; }
+    section { margin-top: 8px; }
+    h2 { font-size: 8.4pt; margin-bottom: 5px; }
+    .skills { grid-template-columns: 145px 1fr; gap: 1px 12px; }
+    .skills dt, .skills dd { font-size: 8.5pt; }
+    .company h3 { font-size: 11pt; }
+    .roles { margin-top: 2px; gap: 0; }
+    .roles li, .dates, .p-role, .edu .sub { font-size: 8.5pt; }
+    .projects { margin-top: 6px; }
+    .project { padding: 5px 0; break-inside: avoid; }
+    .p-head h4 { font-size: 9.6pt; }
+    .badge { font-size: 7.2pt; padding: 0 6px; }
+    .challenge, .built, .result, .compact { font-size: 8.5pt; }
+    .compact .when { font-size: 8pt; }
+    .challenge { margin-top: 3px; }
+    .built { margin-top: 2px; gap: 1px; padding-left: 14px; }
+    .result { margin-top: 3px; padding: 3px 8px; border-radius: 5px; }
+    .result svg { width: 11px; height: 11px; margin-top: 2px; }
+    .stack { display: none; }
+    .compact { margin-top: 2px; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header>
+    <div class="top">
+      <div>
+        <h1>Abhinav Tumati</h1>
+        <p class="role">Data Engineer · AWS · Databricks · Database Migration</p>
+      </div>
+      <button class="print-btn" onclick="window.print()">Save as PDF</button>
+    </div>
+    <ul class="contact">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+916281972975">+91 62819 72975</a></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:abhinavchowdary76@gmail.com">abhinavchowdary76@gmail.com</a></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg><a href="https://www.linkedin.com/in/abhinav-chowdary-tumati-43842a28a/" target="_blank" rel="noopener">linkedin.com/in/abhinav-chowdary-tumati-43842a28a</a></li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Chennai, India</li>
+    </ul>
+  </header>
+
+  <section>
+    <h2>Professional Summary</h2>
+    <p>Applied Research Engineer at zeb AI working as a data engineer, moving from Amazon QuickSight BI into data engineering on AWS and Databricks. Recent work includes a ~10.7 TB production PostgreSQL migration from EC2 to Amazon RDS with AWS DMS, a Databricks Lakehouse with Genie connected to Claude through MCP, and a PostgreSQL to MongoDB migration built on AWS Glue. Looking for a Data Engineer role building data platforms and migrations on AWS and Databricks.</p>
+  </section>
+
+  <section>
+    <h2>Key Skills</h2>
+    <dl class="skills">
+      <dt>AWS Data Engineering</dt><dd>Amazon Redshift, AWS Glue, Amazon S3, AWS Lambda, Amazon Kinesis Data Firehose, Amazon Athena, Amazon CloudWatch, Amazon Textract</dd>
+      <dt>Databricks</dt><dd>Delta Lake, Medallion Architecture, Unity Catalog, PySpark, Spark SQL, AI/BI Dashboards, Genie, Genie in Claude via MCP</dd>
+      <dt>Orchestration &amp; IaC</dt><dd>Terraform, Event-Driven Pipelines (S3 Events, Amazon SNS, Amazon SQS Dead-Letter Queues), Databricks Jobs</dd>
+      <dt>Database Migration</dt><dd>AWS DMS (full load + CDC), PostgreSQL to MongoDB, MongoDB Spark Connector, pg_dump / pg_restore, Full-Row Checksum Validation, Sequence Sync</dd>
+      <dt>Databases</dt><dd>PostgreSQL, MySQL / MariaDB, SQL Server, MongoDB Atlas, Amazon RDS, Aurora PostgreSQL</dd>
+      <dt>Data Modeling &amp; Quality</dt><dd>Dimensional Modeling, Streaming and Batch Pipelines, Incremental Loads, Row-Count and Checksum Reconciliation</dd>
+      <dt>Security &amp; Governance</dt><dd>Unity Catalog, Row and Column-Level Security, Persona-Based Access, AWS KMS, AWS Secrets Manager, IAM</dd>
+      <dt>BI &amp; Languages</dt><dd>Amazon QuickSight (SPICE, Q Topics, Embedding), Python (psycopg2), SQL, Bash, Git, Bitbucket, Jira</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Work Experience</h2>
+    <div class="company">
+      <h3>zeb AI, Chennai</h3>
+    </div>
+    <ul class="roles">
+      <li><span>Applied Research Engineer (Data Engineering)</span><span class="dates">Dec 2024 – Present</span></li>
+      <li><span>Intern</span><span class="dates">Sep 2024 – Nov 2024</span></li>
+    </ul>
+
+    <div class="projects">
+
+      <article class="project">
+        <div class="p-head">
+          <h4>Semiconductor Manufacturer<span class="badge">In progress</span></h4>
+          <span class="dates">Sep 2026 – Present</span>
+        </div>
+        <div class="p-role">Data Lead · Databricks Lakehouse and Genie</div>
+        <p class="challenge"><b>Challenge:</b> No data warehouse; sales actuals, two years of forecasts and opportunities sat in SAP, and leaders wanted answers in plain language instead of waiting for reports.</p>
+        <ul class="built">
+          <li>Leading data engineering in a three-person team: landing SAP Datasphere data in Amazon S3 and building a Bronze, Silver and Gold Lakehouse on AWS Databricks with Delta Lake and Unity Catalog (25+ tables, ~1 TB, six shared dimensions).</li>
+          <li>Building a Genie space with a business glossary, instructions and 20–30 verified SQL questions, persona-based access for 10–15 personas, and Claude Desktop connected through MCP.</li>
+        </ul>
+        <div class="result target"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg><span><b>Target:</b> one governed source of sales data that business users can query in Claude or Genie, with per-user cost alerts from day one.</span></div>
+        <div class="stack"><span>AWS Databricks</span><span>Delta Lake</span><span>Unity Catalog</span><span>Genie</span><span>MCP</span><span>SAP Datasphere</span><span>Amazon S3</span></div>
+      </article>
+
+      <article class="project">
+        <div class="p-head">
+          <h4>Retail Workforce Software Company</h4>
+          <span class="dates">Jul 2026 – Oct 2026</span>
+        </div>
+        <div class="p-role">Data Engineer · 10.7 TB PostgreSQL Migration</div>
+        <p class="challenge"><b>Challenge:</b> Move two production PostgreSQL 14 databases behind a retailer's labour planning and workforce scheduling (~10.7 TB, 5,400+ tables, tables of over 1.2 billion rows) from Amazon EC2 to Amazon RDS for PostgreSQL 18 within planned migration windows.</p>
+        <ul class="built">
+          <li>Designed a wave-based AWS DMS strategy (full load plus CDC) across 25 replication tasks, grouped by table size and dependencies with parallel loading; handled tables without primary keys using temporary surrogate keys and replica identity settings.</li>
+          <li>Built a Python and SQL validation framework comparing row counts and full-row checksums for every table, plus 10 schema validators, publishing wave-by-wave Excel, PDF and HTML reports for the client.</li>
+          <li>Fixed replication gaps found through DMS, CloudWatch and PostgreSQL logs with direct streamed reloads of tables up to 337 million rows; automated parallel rebuilds of thousands of indexes and constraints, and built a sequence sync tool to prevent duplicate-key failures.</li>
+        </ul>
+        <div class="result"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span><b>Result:</b> cut over both databases to Amazon RDS for PostgreSQL 18 after two full production dry runs, backed by row-count and checksum validation reports for every wave.</span></div>
+        <div class="stack"><span>AWS DMS</span><span>Amazon RDS</span><span>PostgreSQL</span><span>CloudWatch</span><span>Python</span><span>SQL</span></div>
+      </article>
+
+      <article class="project">
+        <div class="p-head">
+          <h4>HR Tech SaaS Platform</h4>
+          <span class="dates">Dec 2025 – Jul 2026</span>
+        </div>
+        <div class="p-role">Data Engineer · PostgreSQL to MongoDB Migration</div>
+        <p class="challenge"><b>Challenge:</b> The new product version ran on MongoDB, but customer data sat in a relational database: ~150K rows in 15+ tables, with duplicate primary keys in 5 tables and 1,600+ orphaned records.</p>
+        <ul class="built">
+          <li>Mapped the tables to 15+ MongoDB collections with embedded arrays, built AWS Glue PySpark jobs with the MongoDB Spark connector, and wrote duplicate-safe scripts to move one customer at a time.</li>
+        </ul>
+        <div class="result"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span><b>Result:</b> the first 5 customer accounts moved to the new product with users, roles, templates and job history intact, checked by an AWS Glue validation job covering counts, schema, sample records and relationships.</span></div>
+        <div class="stack"><span>AWS Glue</span><span>PySpark</span><span>MongoDB Atlas</span><span>PostgreSQL</span><span>Python</span></div>
+      </article>
+
+      <article class="project">
+        <div class="p-head">
+          <h4>Invoice Processing POC</h4>
+          <span class="dates">Apr 2026 – May 2026</span>
+        </div>
+        <div class="p-role">Data Engineer · Serverless Pipeline with Terraform</div>
+        <p class="challenge"><b>Challenge:</b> Vendor invoices of 70–80 pages were keyed in by hand, with field names that differ by vendor and line items buried in tables.</p>
+        <ul class="built">
+          <li>Built an event-driven serverless pipeline provisioned with Terraform: an S3 upload triggers AWS Lambda to start async Amazon Textract (forms and tables), Amazon SNS signals completion, and a second Lambda maps 30+ field aliases to a standard schema, with an SQS dead-letter queue and CloudWatch alarms.</li>
+          <li>Ingested the output into Databricks with Auto Loader (exactly-once) into Bronze, MERGE-based Silver upserts and Gold vendor and spend tables.</li>
+        </ul>
+        <div class="result"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span><b>Result:</b> PDF upload to queryable data in under 10 minutes with no manual steps, at an estimated ~$5 per 80-page invoice.</span></div>
+        <div class="stack"><span>Terraform</span><span>AWS Lambda</span><span>Amazon Textract</span><span>Amazon SNS</span><span>Amazon SQS</span><span>Databricks Auto Loader</span></div>
+      </article>
+
+      <article class="project">
+        <div class="p-head">
+          <h4>Building Safety Technology Company</h4>
+          <span class="dates">Aug 2025 – Nov 2025</span>
+        </div>
+        <div class="p-role">Data Engineer · Streaming Data Warehouse</div>
+        <p class="challenge"><b>Challenge:</b> Reporting was needed on live operational data in Amazon RDS PostgreSQL without querying the production database.</p>
+        <ul class="built">
+          <li>Streamed changes through Amazon Kinesis Data Firehose into an Amazon S3 data lake, loaded the warehouse with AWS Lambda and AWS Glue, monitored in Amazon CloudWatch, and added QuickSight dashboards and Q topics with row-level security.</li>
+        </ul>
+        <div class="result"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span><b>Result:</b> near real-time dashboards and plain-language questions on operational data, with each user limited to their own data.</span></div>
+        <div class="stack"><span>Kinesis Data Firehose</span><span>Amazon S3</span><span>AWS Lambda</span><span>AWS Glue</span><span>QuickSight</span></div>
+      </article>
+
+      <article class="project">
+        <div class="p-head">
+          <h4>Digital Marketing Company</h4>
+          <span class="dates">Jan 2025 – Feb 2025</span>
+        </div>
+        <div class="p-role">Data Engineer · DOMO to Amazon Redshift</div>
+        <p class="challenge"><b>Challenge:</b> Analytics ran on DOMO with high licence cost and slow refreshes, and business logic was locked in DOMO dataflows fed from SQL Server and Aurora PostgreSQL.</p>
+        <ul class="built">
+          <li>Replicated both sources into Amazon Redshift with AWS DMS, rebuilt the DOMO dataflow logic in SQL across raw, stage and analytics layers, and connected Amazon QuickSight.</li>
+        </ul>
+        <div class="result"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.6"><path d="M20 6 9 17l-5-5"/></svg><span><b>Result:</b> 60% lower annual analytics cost and near real-time data instead of delayed refreshes.</span></div>
+        <div class="stack"><span>Amazon Redshift</span><span>AWS DMS</span><span>SQL Server</span><span>Aurora PostgreSQL</span><span>QuickSight</span></div>
+      </article>
+
+      <article class="project">
+        <div class="p-head">
+          <h4>Additional Data Projects</h4>
+        </div>
+        <ul class="compact">
+          <li><b>Wholesale Supply Distributor</b> <span class="when">(Jun 2025 – Aug 2025)</span>: Ran a Modern Data Platform Workshop on AWS and built a NetSuite integration POC, with a dimensional model and ETL across raw, stage and analytics layers, a total cost of ownership estimate and a phased roadmap.</li>
+          <li><b>Financial Services Company</b> <span class="when">(May 2025 – Jun 2025)</span>: Moved Amazon Redshift from full to incremental loads, redesigned the model into facts and dimensions, and added AWS DMS checksum and row-count validation.</li>
+          <li><b>Medical Device Company (POC)</b> <span class="when">(Mar 2025 – Apr 2025)</span>: Proof of concept encrypting and decrypting patient health data in Amazon Redshift with AWS Glue, Lambda, Secrets Manager and KMS, as part of a HIPAA-aligned Lakehouse design.</li>
+          <li><b>Oil and Gas IoT Company</b> <span class="when">(Feb 2025 – Mar 2025)</span>: Archived Amazon Timestream data older than 30 days to Amazon S3, queried through the Glue Data Catalog and Athena, and added a composite partition key to cut scans.</li>
+          <li><b>Security Services Provider</b> <span class="when">(Nov 2024 – Dec 2024)</span>: Replaced manual QuickBooks exports with automated ingestion (Microsoft Graph API, AWS Glue) into a Delta Lake on Amazon S3 with Athena views and QuickSight dashboards.</li>
+        </ul>
+      </article>
+
+      <article class="project">
+        <div class="p-head">
+          <h4>BI Projects · Amazon QuickSight</h4>
+        </div>
+        <ul class="compact">
+          <li><b>Facility Services Company</b> <span class="when">(Aug 2025 – Sep 2025)</span>: Embedded 4-sheet dashboard on Amazon RDS MySQL consolidating 5 reports (20+ more scoped for phase two), with row-level security by region, division and program, and Amazon Q topics.</li>
+          <li><b>SaaS Profitability Platform</b> <span class="when">(Apr 2025 – May 2025)</span>: Multi-tenant dashboards with row-level security by account ID, 5 parameterized direct-query datasets returning in under 5 seconds, and an Amazon Q topic.</li>
+          <li><b>Healthcare Diagnostics Company</b> <span class="when">(Sep 2024 – Oct 2024)</span>: Tableau to QuickSight migration POC that consolidated 70+ redundant dashboards with a projected ~40% lower cost.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <p><b>AWS Certified Data Engineer – Associate</b><span class="badge">In progress</span></p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu">
+      <div>
+        <b>B.Tech, Artificial Intelligence and Data Science</b>
+        <span class="sub">Kalaignar Karunanidhi Institute of Technology, Coimbatore, Tamil Nadu</span>
+      </div>
+      <span class="dates">2021 – 2025</span>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>
